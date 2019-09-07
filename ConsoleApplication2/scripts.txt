@@ -1,0 +1,648 @@
+#	[0. 游戏结束]
+PRINT	你的人生像流星一样短暂。人在江湖漂，谁能不挨刀，从你出来闯荡的那天开始，你就做好了这样的心理准备。
+PRINT	游戏结束!
+RETURN
+
+#	[1. 舍友]
+QUEST_JUMP 0 0 2        [如果还没有接收到打怪任务]//0:任务位置 0：flag 2:跳转2剧本
+QUEST_JUMP 0 1 5        [如果接受了，检查是否完成]
+QUEST_JUMP 0 2 6        [如果已经完成就不问了，进行交易]
+RETURN
+
+#    [2. 舍友打蟑螂鼠任务]
+TALK 1 蟑螂鼠最近经常在宿舍出没，愿意收拾一下它吗？
+YES_NO
+EQ_JUMP 0 1 3   [如果答应了，则跳转到接受任务的脚本]	//0：var中位置 1：是 跳转3号剧本
+EQ_JUMP 0 2 4	[如果不答应，则跳转到拒绝的脚本]
+RETURN
+
+#       [3. 接受打蟑螂鼠任务]
+PRINT 你接受了任务：打蟑螂鼠
+SET_FLAG 0 1	//接受任务位置为0 flag=1:接受但为完成
+RETURN
+
+#       [4. 拒绝打蟑螂鼠任务]
+PRINT 你拒绝了打蟑螂鼠任务
+SET_FLAG 0 0	//接受任务位置为0 flag=0:未接受
+RETURN
+
+#       [5. 如果还没完成打蟑螂鼠任务]
+TALK 1 你别忘了打蟑螂鼠啊。
+TALK 0 好的。
+RETURN
+
+#       [6. 如果已经完成打蟑螂鼠任务]
+TALK 1 你真是太棒了！
+PRINT 完成打蟑螂鼠任务。
+TALK 1 这是给你的奖励。
+DEL_GOODS 1 25
+DEL_GOODS 1 1
+ADD_GOODS 0 25
+ADD_GOODS 0 1
+SET_FLAG 0 2
+RETURN
+
+
+#       [7. 食堂老板]
+TALK 4 同学，要吃饭吗？
+YES_NO
+EQ_JUMP 0 1 8
+TALK 4 好吧。
+RETURN
+
+#		[8.询问吃什么]
+TALK 4 要吃些什么呢？1.牛肉汤:30，2.炒饭:20，3.火锅:50，4.自助:20
+SELECT
+EQ_JUMP 2 1 9
+EQ_JUMP 2 2 11
+EQ_JUMP 2 3 13
+EQ_JUMP 2 4 15
+RETURN
+
+#		[9.牛肉汤]
+MORE_JUMP 0 30 10
+TALK 4 同学你的余额已不足，请先充值。
+RETURN
+
+#		[10.吃牛肉汤]
+TALK 4 好了，同学，你的牛肉汤。
+PRINT 小虾米付了钱。
+DEL_MONEY 0 30
+EAT 0 26
+PRINT 吃完饭，精力充沛！
+RETURN
+
+#		[11.炒饭]
+MORE_JUMP 0 20 12
+TALK 4 同学你的余额已不足，请先充值。
+RETURN
+
+#		[12.吃炒饭]
+TALK 4 好了，同学，你的炒饭。
+PRINT 小虾米付了钱。
+DEL_MONEY 0 20
+EAT 0 23
+PRINT 吃完饭，精力充沛！
+RETURN
+
+
+#		[13.火锅]
+MORE_JUMP 0 50 14
+TALK 4 同学你的余额已不足，请先充值。
+RETURN
+
+#		[14.吃火锅]
+TALK 4 好了，同学，你的火锅。
+PRINT 小虾米付了钱。
+DEL_MONEY 0 50
+EAT 0 27
+PRINT 吃完饭，精力充沛！
+RETURN
+
+#		[15.自助]
+MORE_JUMP 0 30 16
+TALK 4 同学你的余额已不足，请先充值。
+RETURN
+
+#		[16.吃自助]
+PRINT 小虾米付了钱。
+TALK 4 好了，同学，你自己去选吃的吧。
+DEL_MONEY 0 30
+EAT 0 28
+PRINT 吃完饭，精力充沛！
+RETURN
+
+
+#       [17.篮球小子]
+QUEST_JUMP 5 0 18		 [如果没有接受找篮球的任务]
+QUEST_JUMP 5 1 21        [如果已经接受了找篮球任务]
+QUEST_JUMP 5 2 22        [如果已经完成了找篮球任务]
+RETURN
+
+
+#		[18.篮球小子的找篮球任务]
+TALK 5 一看你就知道你也喜欢打篮球，可不可以帮我找回我的篮球？
+YES_NO
+EQ_JUMP 0 1 19   [如果接受找篮球任务]
+EQ_JUMP 0 2 20
+RETURN
+
+
+#       [19. 篮球小子的找篮球任务]
+PRINT 你接受了任务：帮篮球小子找篮球。
+SET_FLAG 0 1	//接受任务位置为0 flag=1:接受但为完成
+RETURN
+
+#       [20. 拒绝找篮球任务]
+PRINT 你拒绝了帮篮球小子找篮球。
+TALK 5 我平时休息的时候就喜欢打篮球，可是篮球已经丢了好几天了,你不愿意帮忙，我就自己找吧。
+SET_FLAG 0 0	//接受任务位置为0 flag=0:未接受
+RETURN
+
+#		[21. 已经接受了篮球小子的找篮球任务]
+TALK 5 请快些帮我找回篮球。
+TALK 0 好的，我会的。
+RETURN
+
+#       [22. 找到了篮球]
+TALK 4 我就知道你一定能帮我找回我的篮球。真是太感谢你了，送你双跑鞋吧！
+TALK 0 谢谢。
+TALK 4 对，我还有把剑，也送你了。
+DEL_GOODS 4 21
+DEL_GOODS 4 17
+ADD_GOODS 0 21
+ADD_GOODS 0 17
+ADD_MONEY 0 100
+SET_FLAG 5 2
+PRINT 已完成任务：帮篮球小子找回篮球。
+RETURN
+
+#       [23. 学生甲]
+HAVE_JUMP 6 24 1 24     [如果有篮球小子的篮球]//6:NpcIndex 24goodsIndex 1:num 24:scripts
+PRINT 他向你问好后，走开了。
+RETURN
+
+#       [24. 你询问学生甲]
+PRINT 你问：你有在操场附近看到篮球小子的篮球吗，上面刻着字母Z。
+PRINT 路人脱下了书包。
+TALK 6 你看看是这个吗？
+PRINT 你看过后确认这是篮球小子的篮球。
+TALK 0 是。
+DEL_GOODS 6 24
+ADD_GOODS 0 24
+PRINT 你对他表示了感谢，回去找篮球小子。
+RETURN
+
+#       [25.保洁阿姨]
+QUEST_JUMP 2 0 26        [如果还没接受打蜘蛛精的任务]
+QUEST_JUMP 2 1 28        [如果已经接受了打蜘蛛精的任务]
+RETURN
+
+#    [26. 保洁阿姨委托打蜘蛛精的任务]
+TALK 9 蜘蛛精经常在宿舍附近出没，到处织网，还伤害了学生，能不能帮忙教训它？
+YES_NO
+EQ_JUMP 0 1 27   [如果接受打蜘蛛精的任务]
+TALK 9 如果再不消灭蜘蛛精，可能会伤害更多的同学。
+RETURN
+
+#       [27. 接受打蜘蛛精的任务]
+TALK 9 年轻人就该这样！
+PRINT 你接受了任务：打蜘蛛精
+SET_FLAG 2 1
+RETURN
+
+#       [28. 如果已经接受了打蜘蛛精的任务]
+EQ_JUMP 3 1 29         [已经消灭了蜘蛛精]
+TALK 9 年轻人，等你的好消息。
+RETURN
+
+#       [29. 已经教训了蜘蛛精]
+TALK 11 年轻人你真厉害啊，请收下这些吧。
+DEL_GOODS 9 1
+DEL_MONEY 9 50
+ADD_GOODS 0 1
+ADD_MONEY 0 50
+PRINT 完成任务：消灭蜘蛛精
+SET_FLAG 2 2
+RETURN
+
+#       [30. 蜘蛛精]
+QUEST_JUMP 2 1 31       [如果要消灭蜘蛛精]
+TALK 3 小朋友，竟然敢来这里，不怕你的小命没了吗？
+TALK 0 我可不怕！
+RETURN
+
+#       [31. 打蜘蛛精]
+TALK 0 蜘蛛精，我不能再让你祸害同学了！
+TALK 3 那就看你的本事了！
+FIGHT 3
+RETURN
+
+#     [32. 蜘蛛精失败]
+QUEST_JUMP 2 1 33
+SET_VAR 3 1
+PRINT 成功教训了蜘蛛精。
+RETURN
+
+#       [33. 成功教训了蜘蛛精]
+TALK 3 我不会放过你的。
+REMOVE_NPC 3 3
+SET_VAR 3 1
+SET_FLAG 2 2
+PRINT 成功教训了蜘蛛精，快回去告诉阿姨这个好消息吧。
+RETURN
+
+#       [34. 宿舍]
+CLEAR
+PRINT 回到自己的宿舍真是温馨啊，休息一下吧？
+YES_NO
+EQ_JUMP 0 1 35
+RETURN
+
+#       [35. REFRESH]
+PRINT 经过充分的休息，精力充沛！
+REFRESH 0
+RETURN
+
+#		[36.学生丙]
+QUEST_JUMP 3 0 37		 [如果没有接受教训恶霸的任务]
+QUEST_JUMP 3 1 40		 [如果接受了教训恶霸的任务]
+QUEST_JUMP 3 2 41		 [如果接受了教训恶霸的任务]
+RETURN
+
+#    [37. 交谈]
+TALK 13 一起吃吧。
+YES_NO
+EQ_JUMP 0 1 38   [如果答应了，则跳转到接受任务的脚本]	//0：var中位置 1：是 跳转3号剧本
+TALK 13 好吧。
+RETURN
+
+#    [38. 教训恶霸]
+TALK 13 老板太善良了，老被恶霸欺负，我知道你挺厉害的，帮老板教训一下他吧。
+YES_NO
+EQ_JUMP 0 1 39   [如果答应了，则跳转到接受任务的脚本]	//0：var中位置 1：是 跳转3号剧本
+TALK 13 好吧，我还以为你会很热心呢。
+SET_FLAG 3 0
+RETURN
+
+#       [39. 接受教训恶霸任务]
+PRINT 你接受了任务：教训恶霸
+SET_FLAG 3 1	//接受任务位置为0 flag=1:接受但为完成
+RETURN
+
+#       [40. 如果还没完成教训任务]
+TALK 13 你别忘了教训那个家伙啊。
+TALK 0 不会忘的，要让他找点记性。
+TALK 13 对，不能总是让好人受欺负。
+RETURN
+
+#       [41. 如果已经完成教训恶霸任务]
+TALK 13	你人真好，我替老板谢谢你。
+TALK 13 这是给你的。
+DEL_GOODS 13 1
+DEL_GOODS 13 23
+ADD_GOODS 0 23
+ADD_GOODS 0 1
+SET_FLAG 3 2
+PRINT 完成教训恶霸的任务。
+RETURN
+
+
+#       [42.图书管理员]
+QUEST_JUMP 4 0 43        [如果还没接受教训蛀书虫的任务]
+QUEST_JUMP 4 1 45        [如果已经接受教训蛀书虫的任务]
+QUEST_JUMP 4 1 46
+RETURN
+
+#    [43. 图书管理员教训蛀书虫的任务]
+TALK 8 蛀书虫最近已经破坏了很多书籍了，可不可以帮忙教训一下它？
+YES_NO
+EQ_JUMP 0 1 44   [如果接受教训蛀书虫的任务]
+TALK 8 如果再不教训蛀书虫，可能会破坏更多的书籍。
+RETURN
+
+#       [44. 接受教训蛀书虫的任务]
+TALK 8 那拜托你了！
+PRINT 你接受了任务：教训蛀书虫。
+SET_FLAG 4 1
+RETURN
+
+#       [45. 如果已经接受了教训蛀书虫的任务]
+EQ_JUMP 4 1 46         [已经教训了蛀书虫]
+TALK 8 等你的好消息。
+TALK 0 好的。
+RETURN
+
+#       [46. 已经教训了蛀书虫]
+TALK 8 真是麻烦你了，请收下这些吧。
+DEL_GOODS 8 1
+DEL_GOODS 8 7
+ADD_GOODS 0 1
+ADD_GOODS 0 7
+PRINT 完成任务：教训蛀书虫
+SET_FLAG 4 2
+SET_VAR 4 1
+RETURN
+
+#       [47. 蛀书虫]
+QUEST_JUMP 4 1 48       [如果要教训蛀书虫]
+TALK 7 小朋友，来看书吗，给你留一本。
+TALK 0 你在干什么！
+TALK 7 吃书啊，看不出来吗？
+PRINT 小虾米不知道什么情况，发了会呆。
+RETURN
+
+#       [48. 教训蛀书虫]
+TALK 0 蛀书虫，我不能再让你迫害书籍了！
+TALK 7 呵呵，那就要看你的本事了！
+FIGHT 7
+RETURN
+
+#     [49. 蛀书虫失败]
+QUEST_JUMP 4 1 50
+SET_VAR 4 1
+RETURN
+
+#       [50. 成功教训了蛀书虫]
+TALK 7 要不是我今天吃的太多了，我是不会走的。
+REMOVE_NPC 8 7
+DEL_GOODS 7 10
+DEL_GOODS 7 12
+ADD_GOODS 0 10
+ADD_GOODS 0 12
+SET_VAR 4 1
+SET_FLAG 4 2
+PRINT 成功教训了蛀书虫，快回去告诉图书管理员这个好消息吧。
+RETURN
+
+
+#       [51.门卫]
+QUEST_JUMP 1 0 52        [如果还没接受教训病毒怪的任务]
+QUEST_JUMP 1 1 54        [如果已经接受教训病毒怪的任务]
+QUEST_JUMP 1 1 55
+RETURN
+
+#    [52. 门卫教训病毒怪的任务]
+TALK 12 病毒怪最近经常到办公室内破坏电脑，散播病毒，你愿意教训一下他吗。
+YES_NO
+EQ_JUMP 0 1 53   [如果接受教训病毒怪的任务]
+TALK 12 现在的小伙子啊，白有一身本领。
+RETURN
+
+#       [53. 接受教训病毒怪的任务]
+TALK 12 那交给你了！
+PRINT 你接受了任务：教训病毒怪。
+SET_FLAG 1 1
+RETURN
+
+#       [54. 如果已经接受了教训病毒怪的任务]
+EQ_JUMP 5 1 55         [已经教训了病毒怪]
+TALK 8 好的，等你的好消息。
+RETURN
+
+#       [55. 已经教训了病毒怪]
+TALK 12 好伙子，果然不负虚名，给你一个棍子和护身甲防身吧。
+DEL_GOODS 8 19
+DEL_GOODS 8 20
+ADD_GOODS 0 19
+ADD_GOODS 0 20
+PRINT 完成任务：教训病毒怪。
+SET_VAR 5 1
+SET_FLAG 1 2
+RETURN
+
+#       [56. 病毒怪]
+QUEST_JUMP 1 1 57       [如果要教训病毒怪]
+TALK 10 今天又研发了一种新的病毒，正好用这批新的电脑做实验。
+TALK 0 快住手！
+PRINT 小虾米试图阻止病毒怪。
+RETURN
+
+#       [57. 教训病毒怪]
+TALK 0 病毒怪，快住手！
+TALK 10 呵呵，我偏不！
+FIGHT 10
+RETURN
+
+#     [58. 病毒怪失败]
+QUEST_JUMP 1 1 59
+SET_VAR 5 1
+RETURN
+
+#       [59. 成功教训了病毒怪]
+TALK 10 今天暂时放过这些电脑。
+REMOVE_NPC 6 10
+SET_VAR 5 1
+SET_FLAG 1 2
+PRINT 成功教训了病毒怪，快回去告诉门卫叔叔这个好消息吧。
+RETURN
+
+#       [60. 蟑螂鼠]
+QUEST_JUMP 0 1 61       [如果要教训蟑螂鼠]
+TALK 2 宿舍果然是个好地方，每天都有好吃的。
+TALK 0 住手！
+PRINT 小虾米试图制止蟑螂鼠。
+RETURN
+
+#       [61. 教训蟑螂鼠]
+TALK 0 蟑螂鼠，不许偷吃了！
+TALK 2 呵呵，我就吃！
+RETURN
+
+#     [62. 蟑螂鼠失败]
+QUEST_JUMP 0 1 63
+SET_VAR 5 1
+RETURN
+
+#       [63. 成功教训了蟑螂鼠]
+TALK 2 我还会回来的。
+SET_VAR 5 1
+SET_FLAG 0 2
+REMOVE_NPC 0 2
+PRINT 成功教训了蟑螂鼠，快回去和舍友报喜吧。
+RETURN
+
+#		[64.学生乙]
+QUEST_JUMP 3 0 65		 [如果没有接受教训蛀书虫的任务]
+QUEST_JUMP 3 1 66		 [如果接受了教训蛀书虫的任务]
+QUEST_JUMP 3 2 67		 [如果接受并完成了教训蛀书虫的任务]
+RETURN
+
+#    [65. 交谈]
+TALK 11 最近蛀书虫老是在图书馆破坏，把好多书都弄得破烂不堪。
+TALK 0 这么严重吗？
+TALK 11 是啊，可严重了，你可以问问图书管理员。
+PRINT 小虾米听完后，忧心忡忡地走了。
+RETURN
+
+#    [66. 交谈]
+TALK 11 听说图书管理员找你对付蛀书虫了？
+TALK 0 是的。
+TALK 11 那你可要小心点，它最近可猖狂了。
+TALK 0 好的。谢谢提醒。
+PRINT 小虾米谢过同学后离开了。
+RETURN
+
+#    [67. 交谈]
+TALK 11 听说你教训了蛀书虫？
+TALK 0 是的。
+TALK 11 你真厉害，果然名不虚传。
+TALK 0 谢谢夸奖。
+PRINT 小虾米谢过同学后离开了。
+RETURN
+
+#    [68. 学生丁]
+TALK 14 同学你好，我又迷路了，可以帮我找到2001教室吗？
+YES_NO
+EQ_JUMP 0 1 69   [如果要帮同学找教室]
+TALK 14 好吧，那我自己找。
+PRINT 同学转头走了。
+RETURN
+
+#       [69. 接受找教室任务]
+SET_FLAG 6 1
+TALK 14 谢谢，你人真好！
+TALK 0 不用客气！
+TALK 14 我有一把宝剑，现在也用上了，还有一本武功秘籍，都给你吧。
+SET_FLAG  6 2
+DEL_GOODS 14 8
+DEL_GOODS 14 18
+ADD_GOODS 0 8
+ADD_GOODS 0 18
+RETURN
+
+#    [70. 樱花仙子]
+HAVE_JUMP 0 29 3 83
+TALK 15 小朋友，有什么事吗？
+TALK 0 前辈，能否教我些本领？
+TALK 15 可以啊，帮我个忙？
+YES_NO
+EQ_JUMP 0 1 71   [如果要帮前辈]
+TALK 15 这么没诚意，那你走吧。
+PRINT 小虾米离开。
+RETURN
+
+#       [71. 接受前辈任务]
+TALK 15 其实很简单，我需要三瓶百花蛇草水！
+TALK 0 好的，前辈我这就去！
+PRINT 小虾米离开了。
+SET_FLAG 7 1
+PRINT 接受帮樱花仙子拿到白花蛇草水的任务。
+RETURN
+
+#       [72. 超市老板]
+TALK 18 同学，要买东西吗？
+YES_NO
+EQ_JUMP 0 1 73
+TALK 18 没关系，不买也可以随便看看！
+RETURN
+
+#		[73.询问需要什么]
+TALK 18 要买些什么呢？1.急救包:50，2.白花蛇草水:20，3.绷带:30，4.止痛药:30
+SELECT
+EQ_JUMP 2 1 74
+EQ_JUMP 2 2 76
+EQ_JUMP 2 3 78
+EQ_JUMP 2 4 80
+RETURN
+
+#		[74.急救包]
+MORE_JUMP 0 30 75
+TALK 18 同学你的余额已不足，请先充值。
+RETURN
+
+#		[75.急救包]
+TALK 18 同学，你的急救包！
+TALK 0 好的，谢谢！
+DEL_MONEY 0 30
+ADD_GOODS 0 0
+PRINT 买到急救包。
+RETURN
+
+#		[76.百花蛇草水]
+MORE_JUMP 0 20 77
+TALK 18 同学你的余额已不足，请先充值。
+RETURN
+
+#		[77.买百花蛇草水]
+TALK 18 同学，你的百花蛇草水！
+TALK 0 好的，谢谢！
+DEL_MONEY 0 20
+ADD_GOODS 0 29
+PRINT 买到一瓶百花蛇草水！
+RETURN
+
+
+#		[78.绷带]
+MORE_JUMP 0 50 14
+TALK 18 同学你的余额已不足，请先充值。
+RETURN
+
+#		[79.买绷带]
+TALK 18 同学，你的绷带！
+TALK 0 好的，谢谢！
+DEL_MONEY 0 30
+ADD_GOODS 0 2
+PRINT 买到绷带！
+RETURN
+
+#		[80.止痛药]
+MORE_JUMP 0 30 16
+TALK 18 同学你的余额已不足，请先充值。
+RETURN
+
+#		[81.买止痛药]
+TALK 18 同学，你的止痛药，不能吃太多哦！
+TALK 0 好的，谢谢！
+DEL_MONEY 0 30
+ADD_GOODS 0 3
+PRINT 买到止痛药！
+RETURN
+
+#    [82. 与老师交谈]
+TALK 16 怎么了，有什么事吗？
+TALK 0 老师，听说您会武功，可不可以教我？
+TALK 16 当然，我已经退出江湖很久了，这两本书给你吧，慢慢体悟。
+DEL_GOODS 16 9
+DEL_GOODS 16 11
+ADD_GOODS 0 9
+ADD_GOODS 0 11
+TALK 0 谢谢老师！
+RETURN
+
+#    [83. 买到三瓶神草水]
+DEL_GOODS 0 29
+DEL_GOODS 0 29
+DEL_GOODS 0 29
+TALK 15 谢谢，我这有高级剑以及剑谱，你拿去好好修行吧,还有一瓶神仙水。
+TALK 0 谢谢前辈
+DEL_GOODS 15 8
+DEL_GOODS 15 18
+DEL_GOODS 15 4
+ADD_GOODS 0 8
+ADD_GOODS 0 18
+ADD_GOODS 0 4
+SET_FLAG 7 2
+PRINT 完成任务：帮樱花仙子拿到蛇草水。
+RETURN
+
+#       [84. 恶霸]
+QUEST_JUMP 3 1 85       [如果要教训恶霸]
+TALK 17 今天的菜不怎么样嘛！
+TALK 0 菜不是很好嘛！
+TALK 17 我说不好就是不好，臭小子，少管闲事！
+PRINT 小虾米觉得莫名其妙，变生气地走开了。
+RETURN
+
+#       [85. 教训恶霸]
+TALK 0 原来你就是恶霸，你居然在这吃霸王餐，我要替你爸妈教育一下你。
+TALK 17 关你什么事，多管闲事！
+FIGHT 17
+RETURN
+
+#     [86. 恶霸失败]
+QUEST_JUMP 3 1 86
+PRINT 成功教训了恶霸。
+SET_VAR 7 1
+RETURN
+
+#       [87. 成功教训了恶霸]
+TALK 17 要不是我今天吃的太多了，我是不会走的。
+REMOVE_NPC 1 17
+SET_VAR 7 1
+SET_FLAG 3 2
+PRINT 成功教训了恶霸，快回去告诉同学这个好消息吧。
+RETURN
+
+
+#       //26 掉落基本剑谱
+RAND0M_DROP 6 90
+RETURN
+
+#       //27 掉落滴水剑谱
+RANDOM_DROP 9 50
+RETURN
+
+#       //28 掉落三尺剑谱
+RANDOM_DROP 10 100
+RETURN

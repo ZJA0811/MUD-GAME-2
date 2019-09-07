@@ -1,0 +1,11 @@
+﻿#
+skills.txt		//技能
+goods.txt		//物品
+npc.txt		//人物
+spots.txt		//场景
+quests.txt	//任务
+scripts.txt	//脚本
+map.txt		//地图
+logo2.txt	//标题
+nicks.txt           //绰号
+

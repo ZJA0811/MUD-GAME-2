@@ -1,0 +1,110 @@
+#	//0
+[宿舍]	//name
+这是宿舍，但在这里你就感觉和在家一样。宿舍可以通往食堂、操场和超市。	//desc
+3	//exit number
+1 2 9	//exits: 食堂、操场
+1	//goods number
+1	//goods: 能量饮料
+2	//npc number
+1 2 	//npcs
+-1 -1	//enter and leave script
+
+#	//1
+[食堂]	//name
+这里有好吃的食物，可以补充能量，可通往四区、宿舍、超市和操场	//desc
+4	//exit number
+3 0 9 2	//exits: 家，操场
+0	//goods number
+		//goods
+3	//npc number
+4 13 17 	//npcs
+-1 -1	//enter and leave script
+
+#	//2
+[操场]	//name
+锻炼的好地方，每天都会有很多人来这里锻炼身体。不远处便是三区、宿舍、食堂和超市	//desc
+4	//exit number
+4 0 1 9	//exits: 三区、宿舍、食堂和超市
+2	//goods number
+15 19	//goods
+1	//npc number
+5	//npcs：篮球小子
+-1 -1	//enter and leave script
+
+#	//3
+[四区]	//name
+这里教室宽敞，很多同学会来这里上自习。旁边就是樱花大道，也可通往三区、食堂和超市	//desc
+4	//exit number
+4 5 1 9	//exits: 三区、樱花大道、食堂和超市
+1	//goods number
+6	//goods《基本剑法》
+1	//npc number
+3	//npcs
+-1 -1	//enter and leave script
+
+#	//4
+[三区]	//name
+这里离宿舍楼近，也是一个学习的好地方，可通往四区和操场和樱花大道	//desc
+3	//exit number
+3 1 5	//exits: 四区、操场、樱花大道
+1	//goods number
+10	//goods《基本刀法》
+2	//npc number
+16 9	//npcs
+-1 -1	//enter and leave script
+
+#	//5
+[樱花大道]	//name
+当樱花盛开的时候，樱花大道变成了众多人想来拍照的景点，这里四通八达，可通往三区、四区、信息楼和九球广场	//desc
+4	//exit number
+4 3 6 7	//exits: 三区、四区、信息楼、九球广场
+1	//goods number
+15	//goods
+1	//npc number
+15	//npcs
+-1 -1	//enter and leave script
+
+#	//6
+[信息楼]	//name
+这是信院学生长呆的实验楼，在这里可以学习到很多技能。这里可通往樱花大道、九球广场和图书馆	//desc
+3	//exit number
+5 7 8	//exits: 樱花大道、九球广场、图书馆
+2	//goods number
+16 20	//goods
+2	//npc number
+10 12	//npcs
+-1 -1	//enter and leave script
+
+#	//7
+[九球广场]	//name
+这里可以通往多个区学习，但也有人会在这迷路，可通往樱花大道、信息楼和图书馆	//desc
+3	//exit number
+5 6 8	//exits: 樱花大道、信息楼、图书馆
+1	//goods number
+16	//goods
+1	//npc number
+14	//npcs：
+-1 -1	//enter and leave script
+
+#	//8
+[图书馆]	//name
+在期末的时候，这里是学习的圣地，平常也会有很多人在这学习。这里可回到信息楼和九球广场	//desc
+2	//exit number
+6 7	//exits: 信息楼、九球广场
+3	//goods number
+7 8 14	//goods
+3	//npc number
+7 8 11	//npcs
+-1 -1	//enter and leave script
+
+
+#	//9
+[教育超市]	//name
+这里有日常用品，也有吃的，可以通往四区、食堂、操场和宿舍	//desc
+4	//exit number
+3 1 2 0	//exits: 四区、食堂、操场、宿舍
+5	//goods number
+0 1 2 3 5	//goods
+1	//npc number
+18	//npcs
+-1 -1	//enter and leave script

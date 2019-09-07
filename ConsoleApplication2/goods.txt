@@ -1,0 +1,302 @@
+#	//0
+急救包	//name
+遇到突发情况时使用。	//desc
+0	//use
+0 0 0	//addattack, adddefend, addspeed
+50 0 0 0	//addhp addmaxhp addmp addmaxmp
+-1	//skill index
+-1	//location
+50	//cost
+
+# //1
+能量饮料 //name
+用来补充少量内力。 //desc
+0 //use
+0 0 0 //addattack, adddefend, addspeed
+0 0 50 0	//addhp addmaxhp addmp addmaxmp
+-1 //skill index
+-1 //location
+20 //cost
+
+# //2
+绷带 //name
+用来补充少量血量。 //desc
+0 //use
+0 0 0 //addattack, adddefend, addspeed
+40 0 0 0	//addhp addmaxhp addmp addmaxmp
+-1 //skill index
+-1 //location
+30 //cost
+
+# //3
+止痛药 //name
+用来补充少量血量。 //desc
+0 //use
+0 0 0 //addattack, adddefend, addspeed
+50 0 0 0	//addhp addmaxhp addmp addmaxmp
+-1 //skill index
+-1 //location
+30 //cost
+
+# //4
+神仙水 //name
+能够将内力补充满。 //desc
+0 //use
+30 20 20 //addattack, adddefend, addspeed
+250 50 150 50	//addhp addmaxhp addmp addmaxmp
+-1 //skill index
+-1 //location
+300 //cost
+
+# //5
+医疗箱 //name
+将血量全部补充满。 //desc
+0 //use
+0 0 0 //addattack, adddefend, addspeed
+60 0 0 0	//addhp addmaxhp addmp addmaxmp
+-1 //skill index
+-1 //location
+80 //cost
+
+
+#  6
+《基本剑法》	//name
+关于怎样用剑的入门书籍。	//desc
+2	//
+20 20 20	//attack, defend, speed
+0 0 0 0	//addhp addmaxhp addmp addmaxmp
+0	//skill index
+-1	//location
+200	//cost
+
+#	7
+《滴水剑谱》	//name
+里面记载着滴水剑法。	//desc
+2	//
+30 30 30	//attack, defend, speed
+0 0 0 0	//addhp addmaxhp addmp addmaxmp
+1	//skill index
+-1	//location
+300	//cost
+
+#	8
+《三尺剑谱》	//name
+里面记载着三尺剑法。	//desc
+2	//
+30 30 30	//attack, defend, speed
+0 0 0 0	//addhp addmaxhp addmp addmaxmp
+2	//skill index
+-1	//location
+400	//cost
+
+
+#	9
+《终极剑道》	//name
+里面记载着终极剑道。	//desc
+2	//
+50 50 50	//attack, defend, speed
+0 20 0 20	//addhp addmaxhp addmp addmaxmp
+3	//skill index
+-1	//location
+500	//cost
+
+
+#	10
+《基本刀法》	//name
+里面记载着基本刀法。	//desc
+2	//
+20 20 20	//attack, defend, speed
+0 0 0 0	//addhp addmaxhp addmp addmaxmp
+4	//skill index
+-1	//location
+100	//cost
+
+#	11
+《进阶刀法》	//name
+里面记载着进阶刀法。	//desc
+2	//
+30 30 30	//attack, defend, speed
+0 0 0 0	//addhp addmaxhp addmp addmaxmp
+5	//skill index
+-1	//location
+300	//cost
+
+#	12
+《基本枪棍》	//name
+里面记载着基本枪棍法。	//desc
+2	//
+20 20 20	//attack, defend, speed
+0 0 0 0	//addhp addmaxhp addmp addmaxmp
+6	//skill index
+-1	//location
+100	//cost
+
+#	13
+《基本拳法》	//name
+里面记载着基本拳法。	//desc
+2	//
+20 20 20	//attack, defend, speed
+0 0 0 0	//addhp addmaxhp addmp addmaxmp
+7	//skill index
+-1	//location
+100	//cost
+
+#	14
+《罗汉拳》	//name
+里面记载着罗汉拳。	//desc
+2	//
+30 30 30	//attack, defend, speed
+0 0 0 0	//addhp addmaxhp addmp addmaxmp
+8	//skill index
+-1	//location
+200	//cost
+
+#	15	
+小刀	//name
+可增加攻击性。	//desc
+1		//
+20 0 0	//attack, defend, speed
+0 0 0 0	//addhp addmaxhp addmp addmaxmp
+-1		//skill index
+2		//location
+20		//cost
+
+#	16	
+大刀	//name
+可增加攻击性。	//desc
+1		//
+30 0 0	//attack, defend, speed
+0 0 0 0	//addhp addmaxhp addmp addmaxmp
+-1		//skill index
+2		//location
+80		//cost
+
+#	17	
+低级剑	//name
+可增加攻击性。	//desc
+1		//
+20 0 0	//attack, defend, speed
+0 0 0 0	//addhp addmaxhp addmp addmaxmp
+-1		//skill index
+1		//location
+50		//cost
+
+#	18	
+高级剑	//name
+可增加攻击性。	//desc
+1		//
+40 0 0	//attack, defend, speed
+0 0 0 0	//addhp addmaxhp addmp addmaxmp
+-1		//skill index
+1		//location
+120		//cost
+
+#	19	
+枪棍	//name
+可增加攻击性。	//desc
+1		//
+30 10 0	//attack, defend, speed
+0 0 0 0	//addhp addmaxhp addmp addmaxmp
+-1		//skill index
+2		//location
+80		//cost
+
+#	20	
+防护甲	//name
+可增加防御性。	//desc
+1		//
+0 50 0	//attack, defend, speed
+0 0 0 0	//addhp addmaxhp addmp addmaxmp
+-1		//skill index
+1		//location
+80		//cost
+
+#	21	
+跑鞋	//name
+可增加速度。	//desc
+1		//
+0 0 50	//attack, defend, speed
+0 0 0 0	//addhp addmaxhp addmp addmaxmp
+-1		//skill index
+3		//location
+100		//cost
+
+#	22	
+牛肉干	//name
+可补充能量。	//desc
+0		//
+0 0 0	//attack, defend, speed
+30 0 0 0	//addhp addmaxhp addmp addmaxmp
+-1		//skill index
+-1		//location
+30		//cost
+
+#	23	
+炒饭	//name
+可补充能量。	//desc
+0		//
+0 0 0	//attack, defend, speed
+50 0 30 0	//addhp addmaxhp addmp addmaxmp
+-1		//skill index
+-1		//location
+20		//cost
+
+#	24	
+篮球	//name
+篮球小子的篮球。	//desc
+3		//
+2 0 0	//attack, defend, speed
+0 0 0 0	//addhp addmaxhp addmp addmaxmp
+-1		//skill index
+-1		//location
+200		//cost
+
+#	25	
+零食	//name
+舍友最喜欢的零食 可补充能量	//desc
+0		//
+0 0 0	//attack, defend, speed
+20 0 10 0	//addhp addmaxhp addmp addmaxmp
+-1		//skill index
+-1		//location
+200		//cost
+
+#	26	
+牛肉汤	//name
+可补充能量。	//desc
+0		//
+0 0 0	//attack, defend, speed
+80 0 30 0	//addhp addmaxhp addmp addmaxmp
+-1		//skill index
+-1		//location
+30		//cost
+
+#	27	
+火锅	//name
+可补充能量。	//desc
+0		//
+0 0 0	//attack, defend, speed
+100 0 50 0	//addhp addmaxhp addmp addmaxmp
+-1		//skill index
+-1		//location
+50		//cost
+
+#	28	
+自助	//name
+可以自己选择喜欢的食物。	//desc
+0		//
+0 0 0	//attack, defend, speed
+50 0 20 0	//addhp addmaxhp addmp addmaxmp
+-1		//skill index
+-1		//location
+30		//cost
+
+#	29	
+百花蛇草水	//name
+崂山特色饮品	//desc
+3		//
+0 0 0	//attack, defend, speed
+50 0 20 0	//addhp addmaxhp addmp addmaxmp
+-1		//skill index
+-1		//location
+20		//cost
